@@ -8,10 +8,8 @@ const app=express();
 require('dotenv').config();
 const port=process.env.PORT;
 
-
 app.use(express.json());
 app.use(cors());
-
 
 const configureDB=require('./config/db.js');
 configureDB();
@@ -46,7 +44,6 @@ app.get('/instructors/:id',authenticationUser,instructorCltr.readOne);
 app.delete('/instructors/:id',authenticationUser,instructorCltr.deleteOne);
 //update
 app.put('/instructors/:id',authenticationUser,instructorCltr.updateOne);
-
 
 //course 
 app.post('/courses',courseCltr.create);
