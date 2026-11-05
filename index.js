@@ -2,13 +2,16 @@ const express=require('express');
 const cors=require('cors');
 const mongoose=require('mongoose');
 const bcryptjs=require('bcryptjs');
+const dotenv=require('dotenv');
 const authenticationUser=require('./app/middlewares/authenticationLogin.js');
 const app=express();
-const port=3051;
+require('dotenv').config();
+const port=process.env.PORT;
 
 
 app.use(express.json());
 app.use(cors());
+
 
 const configureDB=require('./config/db.js');
 configureDB();
